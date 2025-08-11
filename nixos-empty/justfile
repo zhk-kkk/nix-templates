@@ -1,0 +1,30 @@
+alias ls := list
+alias s := switch
+alias t := test
+alias b := boot
+alias gc := collect-garbage
+
+# list all recipies
+list:
+    just -l
+
+# switch to a configuration
+switch configuration="":
+    sudo nixos-rebuild switch --flake .#{{configuration}}
+
+# test a configuration
+test configuration="":
+    sudo nixos-rebuild test --flake .#{{configuration}}
+
+# switch to a configuration on the next boot
+boot configuration="":
+    sudo nixos-rebuild boot --flake .#{{configuration}}
+
+# collect /nix/store garbage
+collect-garbage options="-d":
+  sudo nix-collect-garbage {{options}}
+  nix-collect-garbage {{options}}
+
+# check the flake
+check:
+    nix flake check

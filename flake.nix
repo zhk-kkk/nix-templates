@@ -12,6 +12,10 @@
         path = ./nixos-empty;
         description = "zhk's bare-bones multi-host NixOS flake configuration with custom modules system";
       };
+      rust = {
+        path = ./rust;
+        description = "zhk's basic rust development flake";
+      };
     };
   };
 }

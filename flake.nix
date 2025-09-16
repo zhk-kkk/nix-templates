@@ -16,6 +16,10 @@
         path = ./rust;
         description = "zhk's basic rust development flake";
       };
+      golang = {
+        path = ./golang;
+        description = "zhk's basic golang development flake";
+      };
     };
   };
 }
